@@ -1,0 +1,9 @@
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+.top-bar-icon {
+    margin-left: 15px;
+}
+
+.tab-icon {
+    margin-right: 8px;
+}

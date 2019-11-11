@@ -1,0 +1,24 @@
+<mat-toolbar color="primary">Population of Slovakia<img src="../assets/slovakia-flag-icon.png" class="top-bar-icon"></mat-toolbar>
+<mat-tab-group>
+    <mat-tab>
+        <ng-template mat-tab-label>
+            <mat-icon class="tab-icon">view_list</mat-icon>
+            Overview
+        </ng-template>
+        <app-overview></app-overview>
+    </mat-tab>
+    <mat-tab>
+        <ng-template mat-tab-label>
+            <mat-icon class="tab-icon">show_chart</mat-icon>
+            Chart
+        </ng-template>
+        HERE CHART COMPONENT
+    </mat-tab>
+    <mat-tab>
+        <ng-template mat-tab-label>
+            <mat-icon class="tab-icon">assessment</mat-icon>
+            Calculator
+        </ng-template>
+        <app-life-expectancy-calculator></app-life-expectancy-calculator>
+    </mat-tab>
+</mat-tab-group>
