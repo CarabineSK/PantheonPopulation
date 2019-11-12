@@ -14,9 +14,9 @@ export class AppComponent {
   }
 
   ngOnInit() {
-    this.populationIO.getCountries().subscribe((data: {}) => {
-        console.log(data);
-        // this.products = data;
-    });
+    //TODO Connect API service
+    // this.populationIO.getCountries().subscribe((data: {}) => {
+    //     console.log(data);
+    // });
   }
 }

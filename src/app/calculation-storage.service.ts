@@ -41,6 +41,10 @@ export class CalculationStorageService {
         };
     }
 
+    getLastExpectation(): ExpectationData {
+        return [...this.get()].pop();
+    }
+
     getAllCalculations(): ExpectationData[] {
         return this.get();
     }

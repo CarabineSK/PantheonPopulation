@@ -9,6 +9,7 @@ import {CalculationStorageService} from "../calculation-storage.service";
 })
 export class LifeExpectancyCalculatorComponent implements OnInit {
     public expectancyForm;
+    public lastExpectation;
     public items = [];
 
     constructor(private formBuilder: FormBuilder, private calculationStorage: CalculationStorageService) {
@@ -25,12 +26,12 @@ export class LifeExpectancyCalculatorComponent implements OnInit {
     }
 
     fetchCalculations() {
-        this.items = this.calculationStorage.getAllCalculations();
+        this.items = this.calculationStorage.getAllCalculations().reverse();
     }
 
     onSubmit(customerData) {
-        console.log(customerData);
         this.calculationStorage.addExpectation(customerData);
+        this.lastExpectation = this.calculationStorage.getLastExpectation();
         this.fetchCalculations();
     }
 

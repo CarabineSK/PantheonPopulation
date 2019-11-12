@@ -19,3 +19,15 @@
     display: flex;
     flex-direction: column;
 }
+
+.results {
+ margin: 15px;
+}
+
+.current-result {
+    padding: 15px;
+}
+
+.list-item-value {
+    padding-right: 15px;
+}

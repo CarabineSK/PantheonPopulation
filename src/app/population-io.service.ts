@@ -14,6 +14,7 @@ export interface DemographicsData {
     age: string;
     male: number;
     female: number;
+    total: number;
 }
 
 @Injectable({
@@ -36,7 +37,7 @@ export class PopulationIoService {
 
     //TODO connect real service
     getExpectation(controls: ExpectationControls) {
-        return 70;
+        return Math.round(Math.random() * (78 - 69) + 69);
     }
 
     getCountries(): Observable<any> {
@@ -46,7 +47,7 @@ export class PopulationIoService {
     }
 
     getSlovakPopulation(): DemographicsData[] {
-       return [
+       let data = [
             {
                 "age": "0 to 5",
                 "male": 10175713,
@@ -143,6 +144,10 @@ export class PopulationIoService {
                 "female": 3937981
             }
         ];
+       return data.map(item => {
+           item.total = item.male + item.female;
+           return item;
+       });
     }
 
 }

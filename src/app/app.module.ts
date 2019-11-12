@@ -11,8 +11,8 @@ import {
     MatDatepickerModule,
     MatFormFieldModule,
     MatIconModule,
-    MatInputModule, MatNativeDateModule, MatPaginatorModule,
-    MatSelectModule, MatTableModule,
+    MatInputModule, MatListModule, MatNativeDateModule, MatPaginatorModule,
+    MatSelectModule, MatSortModule, MatTableModule,
     MatTabsModule,
     MatToolbarModule
 } from "@angular/material";
@@ -59,11 +59,13 @@ const appRoutes: Routes = [
         MatTableModule,
         MatTabsModule,
         MatIconModule,
+        MatListModule,
         MatFormFieldModule,
         MatInputModule,
         MatNativeDateModule,
         MatDatepickerModule,
         MatPaginatorModule,
+        MatSortModule,
         MatSelectModule,
     ],
     providers: [

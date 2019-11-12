@@ -16,16 +16,20 @@
                 <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
             <mat-form-field>
-                <input id="age"formControlName="age" matInput placeholder="Age">
+                <input id="age" formControlName="age" matInput placeholder="Age">
             </mat-form-field>
             <button mat-button color="accent" class="button" type="submit">Calculate Life Expectancy</button>
         </form>
     </mat-card>
 </div>
-
-<div class="expectancy-item" *ngFor="let item of items">
-    <span>{{ item.sex }} </span>
-    <span>{{ item.country }} </span>
-    <span>{{ item.date }} </span>
-    <span>{{ item.age }}</span>
+<div class="results">
+    <h2 *ngIf="lastExpectation" class="current-result">Life Expectation: {{ lastExpectation.expectation }}</h2>
+    <mat-list>
+        <h3 mat-subheader>Last 5 Results:</h3>
+        <mat-list-item *ngFor="let item of items">
+            <span class="list-item-value">Sex: {{ item.sex }} </span>
+            <span class="list-item-value">Age: {{ item.age }} </span>
+            <span class="list-item-value">Life Expectation: {{ item.expectation }}</span>
+        </mat-list-item>
+    </mat-list>
 </div>

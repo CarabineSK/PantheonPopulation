@@ -1,19 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {MatPaginator, MatSort, MatTableDataSource} from "@angular/material";
+import {DemographicsData, PopulationIoService} from "../population-io.service";
 
-export interface AgeData {
-    age: number;
-    males: number;
-    females: number;
-    total: number;
-}
-
-const AGES_DATA: AgeData[] = [
-    {age: 1, males: 50, females: 50, total: 100},
-    {age: 2, males: 100, females: 100, total: 200},
-    {age: 3, males: 150, females: 150, total: 300},
-    {age: 4, males: 200, females: 200, total: 400},
-    {age: 5, males: 250, females: 250, total: 500},
-];
 
 @Component({
     selector: 'app-overview',
@@ -21,13 +9,26 @@ const AGES_DATA: AgeData[] = [
     styleUrls: ['./overview.component.css']
 })
 export class OverviewComponent implements OnInit {
-    displayedColumns: string[] = ['age', 'males', 'females', 'total'];
-    dataSource = AGES_DATA;
+    displayedColumns: string[] = ['age', 'male', 'female', 'total'];
+    dataSource: MatTableDataSource<DemographicsData>;
 
-    constructor() {
+    @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+    @ViewChild(MatSort, {static: true}) sort: MatSort;
+
+    constructor(private populationIo: PopulationIoService) {
+        this.dataSource = new MatTableDataSource(this.populationIo.getSlovakPopulation());
     }
 
     ngOnInit() {
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
     }
 
+    applyFilter(filterValue: string) {
+        this.dataSource.filter = filterValue.trim().toLowerCase();
+
+        if (this.dataSource.paginator) {
+            this.dataSource.paginator.firstPage();
+        }
+    }
 }
