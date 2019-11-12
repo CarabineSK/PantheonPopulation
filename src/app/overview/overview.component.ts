@@ -9,8 +9,8 @@ import {DemographicsData, PopulationIoService} from "../population-io.service";
     styleUrls: ['./overview.component.css']
 })
 export class OverviewComponent implements OnInit {
-    displayedColumns: string[] = ['age', 'male', 'female', 'total'];
-    dataSource: MatTableDataSource<DemographicsData>;
+    public displayedColumns: string[] = ['age', 'male', 'female', 'total'];
+    public dataSource: MatTableDataSource<DemographicsData>;
 
     @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
     @ViewChild(MatSort, {static: true}) sort: MatSort;

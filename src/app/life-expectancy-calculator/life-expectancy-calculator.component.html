@@ -23,7 +23,7 @@
     </mat-card>
 </div>
 <div class="results">
-    <h2 *ngIf="lastExpectation" class="current-result">Life Expectation: {{ lastExpectation.expectation }}</h2>
+    <h2 *ngIf="currentExpectation" class="current-result">Life Expectation: {{ currentExpectation.expectation }}</h2>
     <mat-list>
         <h3 mat-subheader>Last 5 Results:</h3>
         <mat-list-item *ngFor="let item of items">

@@ -9,7 +9,7 @@ import {CalculationStorageService} from "../calculation-storage.service";
 })
 export class LifeExpectancyCalculatorComponent implements OnInit {
     public expectancyForm;
-    public lastExpectation;
+    public currentExpectation;
     public items = [];
 
     constructor(private formBuilder: FormBuilder, private calculationStorage: CalculationStorageService) {
@@ -31,8 +31,7 @@ export class LifeExpectancyCalculatorComponent implements OnInit {
 
     onSubmit(customerData) {
         this.calculationStorage.addExpectation(customerData);
-        this.lastExpectation = this.calculationStorage.getLastExpectation();
+        this.currentExpectation = this.calculationStorage.getLastExpectation();
         this.fetchCalculations();
     }
-
 }
