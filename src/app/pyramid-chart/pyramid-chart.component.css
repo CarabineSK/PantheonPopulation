@@ -1,0 +1,11 @@
+.charts {
+    display: flex;
+    height: 500px;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.chart {
+    flex: 1;
+}

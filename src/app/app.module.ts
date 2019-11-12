@@ -1,11 +1,13 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {NgModule, NgZone} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {RouterModule, Routes} from "@angular/router";
 import {LifeExpectancyCalculatorComponent} from './life-expectancy-calculator/life-expectancy-calculator.component';
 import {
+    MatButtonModule,
+    MatCardModule,
     MatDatepickerModule,
     MatFormFieldModule,
     MatIconModule,
@@ -15,8 +17,10 @@ import {
     MatToolbarModule
 } from "@angular/material";
 import {PopulationIoService} from "./population-io.service";
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {HttpClientModule} from "@angular/common/http";
 import { OverviewComponent } from './overview/overview.component';
+import { PyramidChartComponent } from './pyramid-chart/pyramid-chart.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 const appRoutes: Routes = [
     // {path: 'calculator', component: LifeExpectancyCalculatorComponent},
@@ -38,13 +42,18 @@ const appRoutes: Routes = [
     declarations: [
         AppComponent,
         LifeExpectancyCalculatorComponent,
-        OverviewComponent
+        OverviewComponent,
+        PyramidChartComponent
     ],
     imports: [
         RouterModule.forRoot(appRoutes),
         BrowserModule,
         BrowserAnimationsModule,
+        FormsModule,
+        ReactiveFormsModule,
         HttpClientModule,
+        MatButtonModule,
+        MatCardModule,
         MatToolbarModule,
         MatTableModule,
         MatTabsModule,
@@ -53,11 +62,11 @@ const appRoutes: Routes = [
         MatInputModule,
         MatNativeDateModule,
         MatDatepickerModule,
-        MatSelectModule
+        MatSelectModule,
     ],
     providers: [
         MatDatepickerModule,
-        PopulationIoService
+        PopulationIoService,
     ],
     bootstrap: [AppComponent]
 })
