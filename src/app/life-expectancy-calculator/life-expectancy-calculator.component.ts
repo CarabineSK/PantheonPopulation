@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import {CalculationStorageService} from "../calculation-storage.service";
 
 @Component({
     selector: 'app-life-expectancy-calculator',
@@ -8,8 +9,9 @@ import { FormBuilder } from '@angular/forms';
 })
 export class LifeExpectancyCalculatorComponent implements OnInit {
     public expectancyForm;
+    public items = [];
 
-    constructor(private formBuilder: FormBuilder) {
+    constructor(private formBuilder: FormBuilder, private calculationStorage: CalculationStorageService) {
         this.expectancyForm = this.formBuilder.group({
             sex: '',
             country: '',
@@ -19,15 +21,17 @@ export class LifeExpectancyCalculatorComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.fetchCalculations();
+    }
+
+    fetchCalculations() {
+        this.items = this.calculationStorage.getAllCalculations();
     }
 
     onSubmit(customerData) {
         console.log(customerData);
-        // Process checkout data here
-        // console.warn('Your order has been submitted', customerData);
-
-        // this.items = this.cartService.clearCart();
-        // this.checkoutForm.reset();
+        this.calculationStorage.addExpectation(customerData);
+        this.fetchCalculations();
     }
 
 }

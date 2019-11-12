@@ -11,7 +11,7 @@ import {
     MatDatepickerModule,
     MatFormFieldModule,
     MatIconModule,
-    MatInputModule, MatNativeDateModule,
+    MatInputModule, MatNativeDateModule, MatPaginatorModule,
     MatSelectModule, MatTableModule,
     MatTabsModule,
     MatToolbarModule
@@ -21,6 +21,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { OverviewComponent } from './overview/overview.component';
 import { PyramidChartComponent } from './pyramid-chart/pyramid-chart.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {CalculationStorageService} from "./calculation-storage.service";
 
 const appRoutes: Routes = [
     // {path: 'calculator', component: LifeExpectancyCalculatorComponent},
@@ -62,11 +63,13 @@ const appRoutes: Routes = [
         MatInputModule,
         MatNativeDateModule,
         MatDatepickerModule,
+        MatPaginatorModule,
         MatSelectModule,
     ],
     providers: [
         MatDatepickerModule,
         PopulationIoService,
+        CalculationStorageService,
     ],
     bootstrap: [AppComponent]
 })

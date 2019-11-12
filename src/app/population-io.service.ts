@@ -3,6 +3,13 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs/internal/Observable";
 import {map} from "rxjs/operators";
 
+export interface ExpectationControls {
+    sex: string;
+    country: string;
+    date: string;
+    age: string;
+}
+
 export interface DemographicsData {
     age: string;
     male: number;
@@ -25,6 +32,11 @@ export class PopulationIoService {
 
     private extractData(res: Response) {
         return res || {};
+    }
+
+    //TODO connect real service
+    getExpectation(controls: ExpectationControls) {
+        return 70;
     }
 
     getCountries(): Observable<any> {
@@ -66,62 +78,62 @@ export class PopulationIoService {
                 "female": 6422017
             },
             {
-                "age": "25 to 29",
+                "age": "25 to 30",
                 "male": 10989596,
                 "female": 10708414
             },
             {
-                "age": "30 to 34",
+                "age": "31 to 35",
                 "male": 10625791,
                 "female": 10557848
             },
             {
-                "age": "35 to 39",
+                "age": "36 to 40",
                 "male": 9899569,
                 "female": 9956213
             },
             {
-                "age": "40 to 44",
+                "age": "41 to 45",
                 "male": 10330986,
                 "female": 10465142
             },
             {
-                "age": "45 to 49",
+                "age": "46 to 50",
                 "male": 10571984,
                 "female": 10798384
             },
             {
-                "age": "50 to 54",
+                "age": "51 to 55",
                 "male": 11051409,
                 "female": 11474081
             },
             {
-                "age": "55 to 59",
+                "age": "56 to 60",
                 "male": 10173646,
                 "female": 10828301
             },
             {
-                "age": "60 to 64",
+                "age": "61 to 65",
                 "male": 8824852,
                 "female": 9590829
             },
             {
-                "age": "65 to 69",
+                "age": "66 to 70",
                 "male": 6876271,
                 "female": 7671175
             },
             {
-                "age": "70 to 74",
+                "age": "71 to 75",
                 "male": 4867513,
                 "female": 5720208
             },
             {
-                "age": "75 to 79",
+                "age": "76 to 80",
                 "male": 3416432,
                 "female": 4313697
             },
             {
-                "age": "80 to 84",
+                "age": "81 to 85",
                 "male": 2378691,
                 "female": 3432738
             },
