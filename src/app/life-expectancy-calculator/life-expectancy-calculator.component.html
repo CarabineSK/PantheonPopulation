@@ -24,8 +24,8 @@
 </div>
 <div class="results">
     <h2 *ngIf="currentExpectation" class="current-result">Life Expectation: {{ currentExpectation.expectation }}</h2>
-    <mat-list>
-        <h3 mat-subheader>Last 5 Results:</h3>
+    <mat-list *ngIf="items.length > 0">
+        <h3 mat-subheader>Last {{ items.length > 1 ? items.length : '' }} result{{ items.length > 1 ? 's' : '' }}:</h3>
         <mat-list-item *ngFor="let item of items">
             <span class="list-item-value">Sex: {{ item.sex }} </span>
             <span class="list-item-value">Age: {{ item.age }} </span>

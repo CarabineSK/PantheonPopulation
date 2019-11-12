@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import {FormBuilder} from '@angular/forms';
 import {CalculationStorageService} from "../calculation-storage.service";
 
 @Component({
@@ -26,7 +26,10 @@ export class LifeExpectancyCalculatorComponent implements OnInit {
     }
 
     fetchCalculations() {
-        this.items = this.calculationStorage.getAllCalculations().reverse();
+        let calculations = this.calculationStorage.getAllCalculations();
+        if (calculations) {
+            this.items = calculations.reverse();
+        }
     }
 
     onSubmit(customerData) {
